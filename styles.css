@@ -121,12 +121,20 @@ figure {
 
 #gallery .row {
   align-items: stretch;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
 }
 
 #gallery .col-6,
 #gallery .col-md-4 {
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
 }
 
 #gallery figure {
@@ -158,5 +166,45 @@ p {
 /* MEDIA QUERIES START HERE */
  /* TABLET MEDIA QUERY */
 
- 
+@media (max-width: 768px) {
 
+  .hero-image {
+    height: 60vh;
+  }
+
+  h1 {
+    background-color: green;
+    font-size: 50px;
+  }
+
+  .description {
+    padding: 2rem;
+  }
+
+  .description h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .description p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  #gallery .container.text-center.m-5 {
+    margin: 2rem auto !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* DESKTOP MEDIA QUERY */
+@media (min-width: 769px) {
+  #gallery .container.text-center.m-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
